@@ -90,4 +90,8 @@ function restartQuiz() {
 
 function exitQuiz() {
   // Add exit logic here...
+}function checkAnswer(selectedAnswer) {
+  console.log('Check answer function called');
+  // ... rest of the code
 }
+
