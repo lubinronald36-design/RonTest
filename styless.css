@@ -1,0 +1,14 @@
+body {
+font-family: Arial, sans-serif;
+}
+.question {
+margin-bottom: 20px;
+}
+.answer {
+font-weight: bold;
+color: green;
+}
+#score {
+font-size: 24px;
+font-weight: bold;
+}
