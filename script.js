@@ -51,23 +51,5 @@ questions.forEach((q) => {
 });
 
 // Update score display
-function updateScore() {
-  document.getElementById("correct").innerHTML = correctCount;
-  document.getElementById("incorrect").innerHTML = incorrectCount;
-}
-
-updateScore();
-
-// You might want to add a button or event listener to check answers and update scores
-// For example:
-// document.getElementById("submit").addEventListener("click", () => {
-//   questions.forEach((q) => {
-//     const userAnswer = document.getElementById(q.answerId).value;
-//     if (userAnswer.toLowerCase() === q.correctAnswer.toLowerCase()) {
-//       correctCount++;
-//     } else {
-//       incorrectCount++;
-//     }
-//   });
-//   updateScore();
-// });
+document.getElementById("correct").innerHTML = correctCount;
+document.getElementById("incorrect").innerHTML = incorrectCount;
