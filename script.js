@@ -59,10 +59,9 @@ function checkAnswer(event) {
 
 function startTimer() {
   let time = 60; // 1 minute timer
-  document.getElementById('timer').innerHTML = Time remaining: ${time} seconds;
   timer = setInterval(() => {
-    time--;
     document.getElementById('timer').textContent = Time remaining: ${time} seconds;
+    time--;
     if (time < 0) {
       endQuiz();
     }
