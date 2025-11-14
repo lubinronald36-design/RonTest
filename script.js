@@ -1,62 +1,31 @@
-let time = 60;
-let timer = setInterval(() => {
-  time--;
-  document.getElementById("time").innerHTML = time;
-  if (time === 0) {
-    clearInterval(timer);
-    alert("Time's up!");
-  }
-}, 1000);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #questions {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <div id="questions"></div>
+    <div id="timer"></div>
+    <div id="score">
+        <p>Correct: <span id="correct">0</span></p>
+        <p>Incorrect: <span id="incorrect">0</span></p>
+    </div>
+    <button id="start-btn">Start Quiz</button>
+    <button id="restart-btn" style="display: none;">Take Again</button>
+    <button id="exit-btn" style="display: none;">Exit</button>
 
-let correctCount = 0;
-let incorrectCount = 0;
-
-const questions = [
-  {
-    question: "If I __ (study) harder, I would pass the exam.",
-    answerId: "answer1",
-    correctAnswer: "studied",
-  },
-  {
-    question: "What's the difference between \"affect\" and \"effect\"?",
-    answerId: "answer2",
-    correctAnswer: "Affect is a verb, effect is a noun",
-  },
-  {
-    question: "The book __ (write) by my favorite author.",
-    answerId: "answer3",
-    correctAnswer: "was written",
-  },
-  {
-    question: "If it __ (rain), I would take an umbrella.",
-    answerId: "answer4",
-    correctAnswer: "rained",
-  },
-  {
-    question: "The company __ (expand) its operations to five countries.",
-    answerId: "answer5",
-    correctAnswer: "has expanded",
-  },
-];
-
-const questionsDiv = document.getElementById("questions");
-
-// Function to render questions
-questions.forEach((q) => {
-  const questionHtml = `
-    <p>${q.question}</p>
-    <input type="text" id="${q.answerId}" placeholder="Your answer">
-  `;
-  questionsDiv.innerHTML += questionHtml;
-});
-
-// Update score display
-document.getElementById("correct").innerHTML = correctCount;
-document.getElementById("incorrect").innerHTML = incorrectCount;
-if (time === 0) {
-    clearInterval(timer);
-    alert("Time's up!");
-    document.getElementById("correct").innerHTML = correctCount;
-    document.getElementById("incorrect").innerHTML = incorrectCount;
-    document.getElementById("questions").innerHTML += "<p>Quiz finished!</p>";
-}
+    <script src="script.js"></script>
+</body>
+</html>
