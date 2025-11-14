@@ -51,25 +51,23 @@ questions.forEach((q) => {
 });
 
 // Update score display
-document.getElementById("correct").innerHTML = correctCount;
-document.getElementById("incorrect").innerHTML = incorrectCount;
-// Add a submit button
-const submitButton = document.createElement("button");
-submitButton.textContent = "Submit Answers";
-document.body.appendChild(submitButton);
+function updateScore() {
+  document.getElementById("correct").innerHTML = correctCount;
+  document.getElementById("incorrect").innerHTML = incorrectCount;
+}
 
-// Function to check answers on submit
-submitButton.onclick = function checkAnswers() {
-  questions.forEach((q, index) => {
-    const userAnswer = document.getElementById(q.answerId).value;
-    if (userAnswer.toLowerCase() === q.correctAnswer.toLowerCase()) {
-      correctCount++;
-      document.getElementById("correct").innerHTML = correctCount;
-    } else {
-      incorrectCount++;
-      document.getElementById("incorrect").innerHTML = incorrectCount;
-    }
-  });
-  clearInterval(timer); // Stop timer on submit
-  alert(You scored ${correctCount} correct, ${incorrectCount} incorrect);
-};
+updateScore();
+
+// You might want to add a button or event listener to check answers and update scores
+// For example:
+// document.getElementById("submit").addEventListener("click", () => {
+//   questions.forEach((q) => {
+//     const userAnswer = document.getElementById(q.answerId).value;
+//     if (userAnswer.toLowerCase() === q.correctAnswer.toLowerCase()) {
+//       correctCount++;
+//     } else {
+//       incorrectCount++;
+//     }
+//   });
+//   updateScore();
+// });
