@@ -53,3 +53,10 @@ questions.forEach((q) => {
 // Update score display
 document.getElementById("correct").innerHTML = correctCount;
 document.getElementById("incorrect").innerHTML = incorrectCount;
+if (time === 0) {
+    clearInterval(timer);
+    alert("Time's up!");
+    document.getElementById("correct").innerHTML = correctCount;
+    document.getElementById("incorrect").innerHTML = incorrectCount;
+    document.getElementById("questions").innerHTML += "<p>Quiz finished!</p>";
+}
