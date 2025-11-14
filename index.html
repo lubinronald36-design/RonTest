@@ -1,38 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-  </style>
 </head>
 <body>
-  <h1>Quiz</h1>
-  <div id="question"></div>
-  <div id="answers"></div>
-  <p id="result"></p>
-  <button id="start-btn">Start Quiz</button>
+  <div id="questions"></div>
+  <div id="timer"></div>
+  <div>Correct: <span id="correct">0</span></div>
+  <div>Incorrect: <span id="incorrect">0</span></div>
 
-  <script>
-    const questions = [
-      {
-        question: "What is the capital of France?",
-        answers: ["Paris", "London", "Berlin", "Rome"],
-        correct: 0
-      },
-      {
-        question: "What is the largest planet in our solar system?",
-        answers: ["Earth", "Saturn", "Jupiter", "Uranus"],
-        correct: 2
-      }
-    ];
-
-    let currentQuestion = 0;
-
-    document.getElementById('start-btn').addEventListener('click', startQuiz);
-
-    function startQuiz()
+  <script src="script.js"></script>
+</body>
+</html
