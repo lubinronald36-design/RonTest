@@ -43,34 +43,14 @@ const questions = [
 const questionsDiv = document.getElementById("questions");
 
 // Function to render questions
-function renderQuestions() {
-  questions.forEach((q, index) => {
-    const questionHtml = `
-      <p>${q.question}</p>
-      <input type="text" id="${q.answerId}" placeholder="Your answer">
-      <button onclick="checkAnswer(${index})">Submit</button>
-    `;
-    questionsDiv.innerHTML += questionHtml;
-  });
-}
+questions.forEach((q) => {
+  const questionHtml = `
+    <p>${q.question}</p>
+    <input type="text" id="${q.answerId}" placeholder="Your answer">
+  `;
+  questionsDiv.innerHTML += questionHtml;
+});
 
-// Function to check answers
-function checkAnswer(index) {
-  const userAnswer = document.getElementById(questions[index].answerId).value;
-  if (userAnswer.toLowerCase() === questions[index].correctAnswer.toLowerCase()) {
-    correctCount++;
-    document.getElementById("correct").innerHTML = correctCount;
-  } else {
-    incorrectCount++;
-    document.getElementById("incorrect").innerHTML = incorrectCount;
-  }
-}
-
-// Render questions on page load
-renderQuestions();
-
-
-You'll also need to add the checkAnswer function to the window object, since it's being called from an onclick attribute:
-
-
-window.checkAnswer = checkAnswer;
+// Update score display
+document.getElementById("correct").innerHTML = correctCount;
+document.getElementById("incorrect").innerHTML = incorrectCount;
