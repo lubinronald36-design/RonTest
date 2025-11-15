@@ -1,4 +1,4 @@
-const questions = [
+[3:13 PM, 11/14/2025] lubinronald36: const questions = [
   { question: "What is the capital of France?", answers: ["Paris", "London", "Berlin", "Rome"], correct: 0 },
   { question: "What is the largest planet in our solar system?", answers: ["Earth", "Saturn", "Jupiter", "Uranus"], correct: 2 },
   // Add more questions here...
@@ -21,41 +21,70 @@ function showQuestion() {
       `).join('')}
     </ul>
   `;
-  const answerButtons = document.querySelectorAll('.answer-btn');
-  answerButtons.forEach(button => {
-    button.addEventListener('click', checkAnswer);
-  });
-}
-
-function checkAnswer(event) {
-  const selectedAnswer = event.target.dataset.index;
-  if (selectedAnswer == questions[currentQuestion].correct) {
-    score++;
-    document.getElementById('correct').textContent = score;
-  } else {
-    document.getElementById('incorrect').textContent = parseInt(document.getElementById('incorrect').textContent) + 1;
+  const answerButtons…
+[4:10 PM, 11/14/2025] lubinronald36: class Quiz {
+  constructor(questions) {
+    this.questions = questions;
+    this.currentQuestion = 0;
+    this.correctCount = 0;
+    this.incorrectCount = 0;
   }
-  currentQuestion++;
-  if (currentQuestion >= questions.length) {
-    endQuiz();
-  } else {
-    showQuestion();
-  }
-}
 
-function startTimer() {
-  let time = 60; // 1 minute timer
-  timer = setInterval(() => {
-    document.getElementById('timer').textContent = Time remaining: ${time} seconds;
-    time--;
-    if (time < 0) {
-      endQuiz();
+  loadQuestion() {
+    if (this.currentQuestion < this.questions.length) {
+      const question = this.questions[this.currentQuestion];
+      // Load the question HTML
+    } else {
+      this.endQuiz();
     }
-  }, 1000);
+  }
+
+  checkAnswer(answer) {
+    const correctAnswer = this.questions[this.currentQuestion].answer;
+    if (answer === correctAnswer) {
+      this.correctCount++;
+    } else {
+      this.incorrectCount++;
+    }
+    this.currentQuestion++;
+    this.loadQuestion();
+  }
+
+  endQuiz() {
+    // End quiz logic
+  }
 }
 
-function endQuiz() {
-  clearInterval(timer);
-  document.getElementById('questions').innerHTML = 'Quiz over!';
-  document.getElementById('timer').innerHTML = '';
+class Timer {
+  constructor(time) {
+    this.time = time;
+    this.interval = null;
+  }
+
+  start() {
+    this.interval = setInterval(() => {
+      this.time--;
+      // Update the timer HTML
+      if (this.time === 0) {
+        clearInterval(this.interval);
+        // Handle timer expiration
+      }
+    }, 1000);
+  }
+
+  stop() {
+    clearInterval(this.interval);
+  }
 }
+
+const quizQuestions = [
+  // Your questions here
+];
+
+const quiz = new Quiz(quizQuestions);
+const timer = new Timer(30);
+
+document.getElementById("start-btn").addEventListener("click", () => {
+  quiz.loadQuestion();
+  timer.start();
+});
